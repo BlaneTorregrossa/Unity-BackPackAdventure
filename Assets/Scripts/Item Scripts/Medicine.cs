@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Medicine", menuName = "Item/Medicine/Default Medicine")]
-public class Medicine : Item
+public abstract class Medicine : Item
 {
     public float HealAmount;
     public float HealAmountOverTime;        //Change

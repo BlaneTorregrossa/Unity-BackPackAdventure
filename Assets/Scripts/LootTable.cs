@@ -11,6 +11,7 @@ public class LootTable : ScriptableObject
     //2
     public float CurrentRoll;
     public List<ItemDrop> drops;
+    public int counter;
 
     public List<Item> ListOfItems = new List<Item>();
 
@@ -23,10 +24,12 @@ public class LootTable : ScriptableObject
         public float drop;
     }
 
+
   
     //Returns all drops in a list
     public List<Item> GetDrop()
     {
+        counter = 0;
         CurrentRoll = 0;
         CurrentRoll = Random.Range(0f, 1f);
         // Iterate through the list (drops) and if drop is 
@@ -34,5 +37,8 @@ public class LootTable : ScriptableObject
         return ListOfItems;
     }
 
+    void Start()
+    {
+    }
 
 }

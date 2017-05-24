@@ -11,7 +11,6 @@ public class JsonTest : MonoBehaviour
         public string Name;
     }
 
-    []
 
     public PlayerInfo Player;
     void Start()

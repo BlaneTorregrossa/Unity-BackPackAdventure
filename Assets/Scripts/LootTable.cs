@@ -4,6 +4,7 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+
 //1
 [CreateAssetMenu]
 public class LootTable : ScriptableObject
@@ -29,16 +30,21 @@ public class LootTable : ScriptableObject
     //Returns all drops in a list
     public List<Item> GetDrop()
     {
-        counter = 0;
-        CurrentRoll = 0;
         CurrentRoll = Random.Range(0f, 1f);
-        // Iterate through the list (drops) and if drop is 
-        // greater than or equal to current role then add that item to the item list.
+        foreach (var loot in drops)
+        {
+            if (CurrentRoll < loot.drop)
+            {
+                ListOfItems.Add(loot.item);
+            }
+        }
+        Debug.Log("List of Items: " + ListOfItems);
         return ListOfItems;
     }
 
     void Start()
     {
+        GetDrop();
     }
 
 }
